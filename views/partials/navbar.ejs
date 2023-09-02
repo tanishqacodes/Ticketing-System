@@ -1,19 +1,4 @@
-<style>
-    .logout-button {
-      color: whitesmoke;
-      background-color: rgb(255, 71, 71);
-      border-radius: 5px;
-      width: fit-content;
-      padding: 7px;
-    }
-  
-    .logout-button:hover {
-      background-color: rgb(251, 98, 98);
-      border-color: whitesmoke;
-      color: whitesmoke;
-    }
-  </style>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <a class="navbar-brand" href="/">TicketMaster</a>
       <button
@@ -33,13 +18,30 @@
             <a class="nav-link" href="">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/user/login">Login</a>
+            <div class="dropdown">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Login
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/user/login">As a user</a></li>
+                <li>
+                  <a class="dropdown-item" href="/employee/login"
+                    >As an employee</a
+                  >
+                </li>
+              </ul>
+            </div>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/user/signup">Signup</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link logout-button" href="/user/logout">Logout</a>
+            <a class="nav-link" href="">Contact</a>
           </li>
         </ul>
       </div>

@@ -8,9 +8,13 @@
     %>
 
     <style>
+      /* Additional styles for the dashboard page */
+      /* * {
+        margin: 0;
+        padding: 0;
+      } */
       .dashboard-container {
         display: flex;
-        padding: 0;
         min-height: 100vh;
       }
 
@@ -80,6 +84,82 @@
         border: none;
         cursor: pointer;
       }
+
+      /* cards */
+
+      .ticket-container {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .ticket-card {
+        background-color: #fff;
+
+        padding: 10px;
+        width: 23rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .ticket-card-header {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .ticket-card-heading {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .ticket-card-description {
+        font-size: 16px;
+        margin-bottom: 15px;
+      }
+
+      .ticket-card-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 5px;
+      }
+      .ticket-footer-right {
+        display: flex;
+        gap: 3px;
+      }
+      .priority-label {
+        font-weight: bold;
+        padding: 3px 8px;
+        border-radius: 3px;
+        color: #fff;
+      }
+
+      .priority-low {
+        background-color: green;
+      }
+
+      .priority-medium {
+        background-color: orange;
+      }
+
+      .priority-high {
+        background-color: red;
+      }
+
+      .chat-btn {
+        padding: 5px 10px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .chat-btn:hover {
+        background-color: #3c3b3b;
+      }
+      .chat-btn:active {
+        background-color: #3c3b3b;
+      }
       @media (max-width: 767px) {
         .dashboard-content {
           padding: 1rem;
@@ -98,8 +178,7 @@
   </head>
   <body>
     <%- include('partials/dashboardnavbar') %>
-
-    <div class="container-fluid dashboard-container">
+    <div class="dashboard-container">
       <nav class="dashboard-nav">
         <ul>
           <li>
@@ -177,19 +256,21 @@
               </div>
             </div>
           </div>
-          <li><a href="/ticket/user">My Tickets</a></li>
+          <li><a href="#">My Tickets</a></li>
         </ul>
       </nav>
       <section class="dashboard-content">
-        <% if (typeof username!=='undefined') { %>
-        <h2>Welcome <%= username %></h2>
-        <% } else{ %>
-        <h2>Welcome</h2>
-        <%}%>
-        <!-- <h2>Welcome to Your Dashboard</h2> -->
+        <h2>Your Tickets</h2>
         <p>Explore your tickets and manage your tasks efficiently.</p>
+        <div class="ticket-container">
+          <!-- Create tickets -->
+
+          <!-- create a ticket for each ticket got from the server -->
+          <%- include('partials/displaytickets') %>
+        </div>
       </section>
     </div>
+    <script src="/scripts/mytickets.js"></script>
     <%- include('partials/footer') %> <%- include('partials/bootstrapjs') %>
   </body>
 </html>

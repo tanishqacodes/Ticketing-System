@@ -1,146 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Ticket Management App</title>
     <style>
-        /* Reset some default styles */
-        body,
-        h1,
-        h2,
-        h3,
-        p,
-        ul,
-        li,
-        form {
-            margin: 0;
-            padding: 0;
-        }
+      /* Reset some default styles */
+      body,
+      h1,
+      h2,
+      h3,
+      p,
+      ul,
+      li,
+      form {
+        margin: 0;
+        padding: 0;
+      }
 
-        /* Global styles */
-        body {
-            font-family: Arial, sans-serif;
-        }
+      /* Global styles */
+      body {
+        font-family: Arial, sans-serif;
+      }
 
-        /* Main section styles */
-        .main-section {
-            /* text-align: center; */
-            display: flex;
-            margin: 0 10rem;
-            padding: 100px 0;
-        }
+      /* Main section styles */
+      .main-section {
+        /* text-align: center; */
+        display: flex;
+        margin: 0 10rem;
+        padding: 100px 0;
+      }
 
-        .left {
-            width: 50%;
-        }
+      .left {
+        width: 50%;
+      }
 
+      .right {
+        width: 50%;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .main-section h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+      }
+
+      .main-section p {
+        font-size: 18px;
+        margin-bottom: 30px;
+      }
+
+      .get-started-btn {
+        padding: 10px 20px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+      }
+
+      /* Contact section styles */
+      .contact-section {
+        background-color: #f5f5f5;
+        padding: 50px 0;
+        text-align: center;
+      }
+
+      .contact-section h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      .contact-section form {
+        display: flex;
+        flex-direction: column;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      .contact-section input,
+      .contact-section textarea {
+        margin-bottom: 15px;
+        padding: 10px;
+        border: 1px solid #ccc;
+      }
+
+      .submit-btn {
+        padding: 10px 20px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+      }
+      @media (max-width: 767px) {
         .right {
-            width: 50%;
-            display: flex;
-            justify-content: flex-end;
+          display: none;
         }
-
-        .main-section h1 {
-            font-size: 36px;
-            margin-bottom: 20px;
+        .main-section {
+          margin: auto 2rem;
+          padding: 2rem 0;
         }
-
-        .main-section p {
-            font-size: 18px;
-            margin-bottom: 30px;
+        .left {
+          margin: 0;
+          width: 100%;
         }
-
-        .get-started-btn {
-            padding: 10px 20px;
-            background-color: #333;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-
-        /* Contact section styles */
-        .contact-section {
-            background-color: #f5f5f5;
-            padding: 50px 0;
-            text-align: center;
-        }
-
-        .contact-section h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-
-        .contact-section form {
-            display: flex;
-            flex-direction: column;
-            max-width: 400px;
-            margin: 0 auto;
-        }
-
-        .contact-section input,
-        .contact-section textarea {
-            margin-bottom: 15px;
-            padding: 10px;
-            border: 1px solid #ccc;
-        }
-
-        .submit-btn {
-            padding: 10px 20px;
-            background-color: #333;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-
-        @media (max-width: 767px) {
-            .right {
-                display: none;
-            }
-
-            .main-section {
-                margin: auto 2rem;
-                padding: 2rem 0;
-            }
-
-            .left {
-                margin: 0;
-                width: 100%;
-            }
-        }
+      }
     </style>
     <%- include('partials/bootstrapcss') %>
-</head>
+  </head>
+  <body>
+    <%- include('partials/navbar.ejs') %>
+    <section class="main-section">
+      <div class="left">
+        <h1>Ticket Master</h1>
+        <p>
+          Experience seamless ticket management with our platform. Users can
+          easily create and manage tickets in an interactive UI.
+        </p>
+        <button class="get-started-btn">Get Started</button>
+      </div>
+      <div class="right">
+        <img src="./images/ticket.png" alt="" />
+      </div>
+    </section>
+    <section id="Contact" class="contact-section">
+      <h2>Contact Us</h2>
+      <form class="container-fluid">
+        <input type="text" placeholder="Your Name" />
+        <input type="email" placeholder="Your Email" />
+        <textarea placeholder="Your Message"></textarea>
+        <button class="submit-btn">Submit</button>
+      </form>
+    </section>
 
-<body>
-    <%- include('partials/header.ejs') %>
-        <section class="main-section">
-            <div class="left">
-                <h1>Ticket Master</h1>
-                <p>
-                    Experience seamless ticket management with our platform. Users can
-                    easily create and manage tickets in an interactive UI.
-                </p>
-                <button class="get-started-btn">Get Started</button>
-            </div>
-            <div class="right">
-                <img src="./images/ticket.png" alt="" />
-            </div>
-        </section>
-        <section id="Contact" class="contact-section">
-            <h2>Contact Us</h2>
-            <form class="container-fluid">
-                <input type="text" placeholder="Your Name" />
-                <input type="email" placeholder="Your Email" />
-                <textarea placeholder="Your Message"></textarea>
-                <button class="submit-btn">Submit</button>
-            </form>
-        </section>
-
-        <%- include('partials/bootstrapjs.ejs') %> 
-        <%- include('partials/footer.ejs') %>
-</body>
-
+    <%- include('partials/bootstrapjs.ejs') %> <%-include('partials/footer.ejs')
+    %>
+  </body>
 </html>
