@@ -38,8 +38,28 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/user/signup">Signup</a>
+            <div class="dropdown">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Sign Up
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/user/signup">As a user</a></li>
+                <li>
+                  <a class="dropdown-item" href="/employee/signup"
+                    >As an employee</a
+                  >
+                </li>
+              </ul>
+            </div>
           </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="/user/signup">Signup</a>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link" href="">Contact</a>
           </li>

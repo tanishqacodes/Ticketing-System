@@ -11,6 +11,9 @@ const ejs = require("ejs");
 const session = require("express-session");
 const mongoose = require("mongoose");
 const multer = require("multer");
+const { userRouter } = require("./routes/user");
+const { ticketRouter } = require("./routes/ticket");
+const { employeeRouter } = require("./routes/employee");
 
 const dotenv = require("dotenv");
 const { log } = require("util");
@@ -37,13 +40,18 @@ app.use(express.json());
 // use express session to keep track of the user
 app.use(
     session({
-            secret : "maikyubatau",
-            resave : false,
-            saveUninitialized : false,
+        secret : "maikyubatau",
+        resave : false,
+        saveUninitialized : false,
     })
 );
 
 // routes
+app.use("/user",userRouter);
+app.use("/ticket",ticketRouter);
+app.use("/employee",employeeRouter);
+
+
 app.get("/",function(req,res){
     if(req.session.isLoggedIn){
         return res.redirect("/user/dashboard");
